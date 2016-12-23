@@ -1,0 +1,23 @@
+<md-content>
+	<md-card style="padding:40px;">
+		<div layout = "row" flex="100">
+			<div flex>User Name</div>
+			<div flex>Email</div>
+			<div flex>Final Score</div>
+			<div flex>Aptitude +</div>
+			<div flex>Aptitude -</div>
+			<div flex>Programming +</div>
+			<div flex>Programming -</div>
+		</div>
+
+		<div layout = "row" flex="100" class="user-results md-padding" ng-repeat="item in responses">
+			<div flex>{{item.userInfo.name}}</div>
+			<div flex>{{item.userInfo.email}}</div>
+			<div flex>{{item.score}}</div>
+			<div flex>{{item.aptiScore}}</div>
+			<div flex>{{item.negativeAptiScore}}</div>
+			<div flex>{{item.progScore}}</div>
+			<div flex>{{item.negativeProgScore}}</div>
+		</div>
+	</md-card>
+</md-content>

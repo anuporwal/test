@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8" />
+    <title> Roofpik MCQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+    try {
+        Typekit.load({
+            async: true
+        });
+    } catch (e) {}
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="general/sweetalert.css">
+    <script src="general/sweetalert.min.js"></script>
+</head>
+</head>
+
+<body ng-app="roofpik">
+    <ui-view autoscroll="true"></ui-view>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <!-- Bower Components -->
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCip0OjIXLaBTf0zPqsuGxhrprd12AWCo8",
+        authDomain: "friendlychat-1d26c.firebaseapp.com",
+        databaseURL: "https://friendlychat-1d26c.firebaseio.com",
+        storageBucket: "friendlychat-1d26c.appspot.com",
+        messagingSenderId: "604172388322"
+    };
+    firebase.initializeApp(config);
+    </script>
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+    <script src="controllers/home-ctrl.js"></script>
+    <script src="controllers/results-ctrl.js"></script>
+</body>
+
+</html>
