@@ -14,11 +14,11 @@ app.controller('homeCtrl', function($scope, $timeout){
 	$scope.technicalQuestions = [
 		{
 			ques: 'Two trains running in opposite directions cross a man standing on the platform in 27 seconds and 17 seconds respectively and they cross each other in 23 seconds. The ratio of their speeds is:',
-			options: ['1 : 3', '3 : 2', '3 : 4', 'None of these'],
+			options: ['1 : 3', '3 : 2', '3 : 4', 'None of these']
 		},
 		{
 			ques: 'A trader mixes 26 kg of rice at Rs. 20 per kg and 30 kg of rice of other variety at Rs. 36 per kg and sells the mixture at Rs. 30 per kg. His profit percent is:',
-			options: ['No profit, no loss', '5%', '8%', '10%'],
+			options: ['No profit, no loss', '5%', '8%', '10%']
 		},
 		{
 			ques: 'To fill a tank, 25 buckets of water is required. How many buckets of water will be required to fill the same tank if the capacity of the bucket is reduced to two-fifth of its present ?',
@@ -55,7 +55,8 @@ app.controller('homeCtrl', function($scope, $timeout){
 		},
 		{
 			ques: 'Let A be a square matrix of size n x n. Consider the following program. What is the expected output?',
-			options: ['Transpose of matrix A', 'The matriz A itself', 'Adding 100 to the upper diagonal elements and subtracting 100 from diagonal elements of A', 'None of the above']
+			options: ['Transpose of matrix A', 'The matriz A itself', 'Adding 100 to the upper diagonal elements and subtracting 100 from diagonal elements of A', 'None of the above'],
+			image: '/images/q11.png'
 		},
 		{
 			ques: 'Which of the following statements is/are TRUE for an undirected graph?',
@@ -170,6 +171,71 @@ app.controller('homeCtrl', function($scope, $timeout){
 			ques: 'What is the output of this C code?',
 			options: ['2 2', '2 97', 'Undefined behaviour', 'Segmentation fault'],
 			image: '/images/q35.png'
+		},
+		{
+			ques:'We can get multiple local optimum solutions if we solve a linear regression problem by minimizing the sum of squared errors using gradient descent.',
+			options: ['True', 'False']
+		},
+		{
+			ques: 'When the feature space is larger, over fitting is more likely.',
+			options: ['True', 'False']
+		},
+		{
+			ques: ' When a decision tree is grown to full depth, it is more likely to fit the noise in the data.',
+			options: ['True', 'False']
+		},
+		{
+			ques: 'We can use gradient descent to learn a Gaussian Mixture Model.',
+			options: ['True', 'False']
+		},
+		{
+			ques: 'As the number of training examples goes to infinity, your model trained on that data will have:',
+			options: ['Lower Variance', 'Higher Variance', 'Same Variance']
+		},
+		{
+			ques: 'As the number of training examples goes to infinity, your model trained on that data will have:',
+			options: ['Lower Bias', 'Higher Bias', 'Same Bias']
+		},
+		{
+			ques: 'You came to know that your model is suffering from low bias and high variance. Which algorithm should you use to tackle it?',
+			options: ['Use regularization technique, where higher model coefficients get penalized, hence lowering model complexity.', ' Use top n features from variable importance chart. May be, with all the variable in the data set, the algorithm is having difficulty in finding the meaningful signal.', 'Both']
+		},
+		{
+			ques: 'Why is naive Bayes so ‘naive’ ?',
+			options: ['It assumes that all of the features in a data set are equally important and independent.', 'It takes the subset of features to train.', 'None of these']
+		},
+		{
+			ques: 'The problem of finding hidden structure in unlabeled data is called:',
+			options: ['Supervised Learning', 'Unsupervised Learning', 'Reinforcement Learning']
+		},
+		{
+			ques: 'When doing least-squares regression with regularisation (assuming that the optimisation can be done exactly), increasing the value of the regularisation parameter λ',
+			options: ['Will never decrease the training error.', 'Will never increase the training error.', 'Will never decrease the testing error.']			
+		},
+		{
+			ques: 'You are reviewing papers for the ag Conference, and you see submissions with the following claims. Which ones would you consider accepting?',
+			options:['My method achieves a training error lower than all previous methods!', 'My method achieves a test error lower than all previous methods! (Footnote: When regularisation parameter λ is chosen so as to minimise test error.)','My method achieves a test error lower than all previous methods! (Footnote: When regularisation parameter λ is chosen so as to minimise cross-validaton error.)']
+		},
+		{
+			ques: 'Regarding bias and variance, which of the follwing statements are true? (Here ‘high’ and ‘low’ are relative to the ideal model.)',
+			options: ['Models which overfit have a high bias.', 'Models which overfit have a low bias.', 'Models which underfit have a high variance.']
+		},
+		{
+			ques: 'Which of the following problems are best suited for Machine Learning?',
+			subques: ['(i) Classifying numbers into primes and non-primes.', '(ii) Detecting potential fraud in credit card charges.', '(iii) Determining the time it would take a falling object to hit the ground.', '(iv) Determining the optimal cycle for traffic lights in a busy intersection.'],
+			options: ['(ii) and (iv)', '(i) and (ii)', '(i), (ii), and (iii)', '(iii)', '(i) and (iii)']
+		},
+		{
+			ques: 'What are support vectors in SVM ?',
+			options: ['Training Set', 'Subset of training set']
+		},
+		{
+			ques: 'Random Forest is example of ?',
+			options: ['Bagging', 'Boosting', 'Neither']
+		},
+		{
+			ques: 'Boosting is:',
+			options: ['Trains learners sequentially','Draws random samples from training sets to train']
 		}
 	];
 	if(checkLocalStorage('user')){
@@ -250,6 +316,13 @@ app.controller('homeCtrl', function($scope, $timeout){
 			userInfo: $scope.user,
 			answers: userData
 		}
+		if($scope.min < 10){
+			$scope.min = '0'+$scope.min;
+		}
+		if($scope.seconds < 10){
+			$scope.seconds = '0'+$scope.seconds;
+		}
+		finalData.userInfo.time = $scope.min+':'+$scope.seconds;
 		updates['test/'+$scope.user.testType+'/'+pushId]  = finalData;
 		// console.log(updates);
 		firebase.database().ref().update(updates).then(function(){

@@ -97,6 +97,11 @@
     	<p style="text-align: right;font-size: 30px;font-weight: bold;" ng-show="showClock"><span ng-show="showMinZero">0</span>{{min}} : <span ng-show="showSecondZero">0</span>{{seconds}}</p>
     	<md-card flex="90" style="margin:10px auto;padding:40px;">
 	        <div layout="row" ng-repeat="ques in allQuestions track by $index" flex layout-wrap>
+	        	<div flex="100">
+		        	<h2 style="text-align:center;text-decoration:underline;" ng-show="$index==0">Aptitude</h2>
+		        	<h2 style="text-align:center;text-decoration:underline;" ng-show="$index==10">Coding</h2>
+		        	<h2 style="text-align:center;text-decoration:underline;" ng-show="$index==35">Machine Learning</h2>
+	        	</div>
 	            <div flex="5">
 	                <h4>{{$index + 1}}.</h4>
 	            </div>

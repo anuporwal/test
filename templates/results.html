@@ -1,23 +1,50 @@
+<style>
+	.user-results .result-values {
+		border: 1px solid #ccc;
+    	padding: 15px 8px;
+	}
+
+	.headings h3{
+		text-align:center;
+	}
+	.headings {
+		background-color:#f2f2f2;
+		border: 1px solid #ccc;
+		padding:0px !important;
+	}
+	.user-results {
+		padding:0px;
+	}
+</style>
 <md-content>
 	<md-card style="padding:40px;">
-		<div layout = "row" flex="100">
-			<div flex>User Name</div>
-			<div flex>Email</div>
-			<div flex>Final Score</div>
-			<div flex>Aptitude +</div>
-			<div flex>Aptitude -</div>
-			<div flex>Programming +</div>
-			<div flex>Programming -</div>
+		<h1 style="text-align:center;">KIIT Results</h1>
+		<div layout = "row" flex="100" class="user-results">
+			<div flex="10" class="headings"><h3>S. No.</h3></div>
+			<div flex="20" class="headings"><h3>User Name</h3></div>
+			<div flex="20" class="headings"><h3>Email</h3></div>
+			<div flex="5" class="headings"><h3>Apti +</h3></div>
+			<div flex="5" class="headings"><h3>Apti -</h3></div>
+			<div flex="5" class="headings"><h3>Prog +</h3></div>
+			<div flex="5" class="headings"><h3>Prog -</h3></div>
+			<div flex="5" class="headings"><h3>ML +</h3></div>
+			<div flex="5" class="headings"><h3>ML -</h3></div>
+			<div flex="10" class="headings"><h3>Final Score</h3></div>
+			<div flex="10" class="headings"><h3>Time Taken</h3></div>
 		</div>
 
 		<div layout = "row" flex="100" class="user-results md-padding" ng-repeat="item in responses">
-			<div flex>{{item.userInfo.name}}</div>
-			<div flex>{{item.userInfo.email}}</div>
-			<div flex>{{item.score}}</div>
-			<div flex>{{item.aptiScore}}</div>
-			<div flex>{{item.negativeAptiScore}}</div>
-			<div flex>{{item.progScore}}</div>
-			<div flex>{{item.negativeProgScore}}</div>
+			<div flex="10" class="result-values">{{$index + 1}}.</div>
+			<div flex="20" class="result-values">{{item.userInfo.name}}</div>
+			<div flex="20" class="result-values">{{item.userInfo.email}}</div>
+			<div flex="5" class="result-values">{{item.aptiScore}}</div>
+			<div flex="5" class="result-values">{{item.negativeAptiScore}}</div>
+			<div flex="5" class="result-values">{{item.progScore}}</div>
+			<div flex="5" class="result-values">{{item.negativeProgScore}}</div>
+			<div flex="5" class="result-values">{{item.mlScore}}</div>
+			<div flex="5" class="result-values">{{item.negativeMlScore}}</div>
+			<div flex="10" class="result-values">{{item.score}}</div>
+			<div flex="10" class="result-values">{{item.userInfo.time || 0}} mins</div>
 		</div>
 	</md-card>
 </md-content>
