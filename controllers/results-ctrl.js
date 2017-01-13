@@ -18,31 +18,25 @@ app.controller('resultsCtrl', function($scope, $timeout){
 			var negativeProgScore = 0;
 			var mlScore = 0;
 			var negativeMlScore = 0;
-			for(var i = 0; i < 35; i++){
+			for(var i = 0; i < 51; i++){
 				if(answers[key].answers[i] != 'Not answered'){
 					if(i < 10){
 						if(parseInt(answers[key].answers[i]) == $scope.correctAnswers[i]){
-							console.log('correct', i);
 							aptiScore += 1;
 						} else {
 							negativeAptiScore -= 1;
-							console.log('incorrect', i);
 						}						
 					} else if(i>=10 && i < 35) {
 						if(parseInt(answers[key].answers[i]) == $scope.correctAnswers[i]){
-							console.log('correct', i);
 							progScore += 1;
 						} else {
 							negativeProgScore -= 1;
-							console.log('incorrect', i);
 						}
 					} else {
 						if(parseInt(answers[key].answers[i]) == $scope.correctAnswers[i]){
-							console.log('correct', i);
 							mlScore += 1;
 						} else {
 							negativeMlScore -= 1;
-							console.log('incorrect', i);
 						}
 					}
 				}
@@ -54,7 +48,6 @@ app.controller('resultsCtrl', function($scope, $timeout){
 			answers[key].negativeProgScore = negativeProgScore;
 			answers[key].mlScore = mlScore;
 			answers[key].negativeMlScore = negativeMlScore;
-			console.log(answers[key]);
 			$scope.responses.push(answers[key]);
 		}
 
